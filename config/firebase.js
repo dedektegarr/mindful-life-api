@@ -1,4 +1,6 @@
 const { initializeApp } = require("firebase/app");
+const { getFirestore } = require("firebase/firestore");
+
 require("dotenv").config();
 
 // Your web app's Firebase configuration
@@ -12,6 +14,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebase = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-module.exports = firebase;
+module.exports = {
+  db: getFirestore(app),
+};
